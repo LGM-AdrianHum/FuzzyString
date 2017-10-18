@@ -1,8 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//    ___                    __ _        _             
+//   / __\   _ _________   _/ _\ |_ _ __(_)_ __   __ _ 
+//  / _\| | | |_  /_  / | | \ \| __| '__| | '_ \ / _` |
+// / /  | |_| |/ / / /| |_| |\ \ |_| |  | | | | | (_| |
+// \/    \__,_/___/___|\__, \__/\__|_|  |_|_| |_|\__, |
+//                     |___/                     |___/ 
+// File: FuzzyString/FuzzyString/HammingDistance.cs
+// User: Adrian Hum/
+// 
+// Created:  2017-10-18 7:51 PM
+// Modified: 2017-10-18 8:56 PM
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuzzyString
 {
@@ -10,20 +18,7 @@ namespace FuzzyString
     {
         public static int HammingDistance(this string source, string target)
         {
-            int distance = 0;
-
-            if (source.Length == target.Length)
-            {
-                for (int i = 0; i < source.Length; i++)
-                {
-                    if (!source[i].Equals(target[i]))
-                    {
-                        distance++;
-                    }
-                }
-                return distance;
-            }
-            else { return 99999; }
+            return source.Length != target.Length ? 99999 : source.Where((t, i) => !t.Equals(target[i])).Count();
         }
     }
 }
