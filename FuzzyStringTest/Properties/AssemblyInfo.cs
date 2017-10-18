@@ -4,10 +4,10 @@
 // / /  | |_| |/ / / /| |_| |\ \ |_| |  | | | | | (_| |
 // \/    \__,_/___/___|\__, \__/\__|_|  |_|_| |_|\__, |
 //                     |___/                     |___/ 
-// File: FuzzyString/FuzzyStringConsole/AssemblyInfo.cs
+// File: FuzzyString/FuzzyStringTest/AssemblyInfo.cs
 // User: Adrian Hum/
 // 
-// Created:  2017-10-18 7:51 PM
+// Created:  2017-10-18 9:01 PM
 // Modified: 2017-10-18 9:10 PM
 
 using System.Reflection;
@@ -16,12 +16,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FuzzyStringConsole")]
+[assembly: AssemblyTitle("FuzzyStringTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FuzzyStringConsole")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("FuzzyStringTest")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a23fa530-8f7b-4072-826a-d39e88763f22")]
+[assembly: Guid("067456c0-086c-46a8-b37f-1405717b7bfc")]
 
 // Version information for an assembly consists of the following four values:
 //

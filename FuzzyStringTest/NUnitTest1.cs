@@ -2,23 +2,33 @@
 //   / __\   _ _________   _/ _\ |_ _ __(_)_ __   __ _ 
 //  / _\| | | |_  /_  / | | \ \| __| '__| | '_ \ / _` |
 // / /  | |_| |/ / / /| |_| |\ \ |_| |  | | | | | (_| |
-// \/    \__,_/___/___|\__, \__/\__|_|  |_|_| |_|\__, |
+// \/    \__,_/___/___|\__, \__/\__|_|  |_|_| |_|\__, |.TEST
 //                     |___/                     |___/ 
-// File: FuzzyString/FuzzyStringConsole/Program.cs
+// File: FuzzyString/FuzzyStringTest/NUnitTest1.cs
 // User: Adrian Hum/
 // 
-// Created:  2017-10-18 7:51 PM
+// Created:  2017-10-18 9:01 PM
 // Modified: 2017-10-18 9:10 PM
 
-using System;
 using System.Collections.Generic;
 using FuzzyString;
+using NUnit.Framework;
 
-namespace FuzzyStringConsole
+//using NUnit.Framework;
+
+namespace FuzzyStringTest
 {
-    internal class Program
+    [TestFixture]
+    public class FuzzyString
     {
-        private static void Main(string[] args)
+        public string TestString1 = "Kyven Smythe";
+
+        public string TestString2 = "Kevin Smith";
+
+        public string TestString3 = "Alexander Dumas";
+
+        [Test]
+        public void GeneralTest()
         {
             var kevin = "kevin";
             var kevyn = "kevyn";
@@ -32,13 +42,18 @@ namespace FuzzyStringConsole
                 FuzzyStringComparisonOptions.CaseSensitive
             };
 
-            Console.WriteLine(kevin.ApproximatelyEquals(kevyn, FuzzyStringComparisonTolerance.Weak, options.ToArray()));
-            Console.WriteLine(
+            Assert.IsTrue(kevin.ApproximatelyEquals(kevyn, FuzzyStringComparisonTolerance.Weak, options.ToArray()));
+            Assert.IsTrue(
                 kevin.ApproximatelyEquals(kevyn, FuzzyStringComparisonTolerance.Normal, options.ToArray()));
-            Console.WriteLine(
+            Assert.IsTrue(
                 kevin.ApproximatelyEquals(kevyn, FuzzyStringComparisonTolerance.Strong, options.ToArray()));
+        }
 
-            Console.ReadLine();
+        [Test]
+        public void GetHammingDistance()
+        {
+            var l = TestString1.HammingDistance(TestString2);
+            Assert.AreNotEqual(l, 0);
         }
     }
 }
