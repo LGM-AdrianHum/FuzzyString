@@ -1,12 +1,21 @@
-﻿using System;
+﻿//    ___                    __ _        _             
+//   / __\   _ _________   _/ _\ |_ _ __(_)_ __   __ _ 
+//  / _\| | | |_  /_  / | | \ \| __| '__| | '_ \ / _` |
+// / /  | |_| |/ / / /| |_| |\ \ |_| |  | | | | | (_| |
+// \/    \__,_/___/___|\__, \__/\__|_|  |_|_| |_|\__, |
+//                     |___/                     |___/ 
+// File: FuzzyString/FuzzyString/Operations.cs
+// User: Adrian Hum/
+// 
+// Created:  2017-10-18 7:51 PM
+// Modified: 2017-10-18 8:56 PM
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuzzyString
 {
-    public static partial class Operations
+    public static class Operations
     {
         public static string Capitalize(this string source)
         {
@@ -15,35 +24,31 @@ namespace FuzzyString
 
         public static string[] SplitIntoIndividualElements(string source)
         {
-            string[] stringCollection = new string[source.Length];
+            var stringCollection = new string[source.Length];
 
-            for (int i = 0; i < stringCollection.Length; i++)
-            {
+            for (var i = 0; i < stringCollection.Length; i++)
                 stringCollection[i] = source[i].ToString();
-            }
 
             return stringCollection;
         }
 
         public static string MergeIndividualElementsIntoString(IEnumerable<string> source)
         {
-            string returnString = "";
+            var returnString = "";
 
-            for (int i = 0; i < source.Count(); i++)
-            {
-                returnString += source.ElementAt<string>(i);
-            }
+            var enumerable = source as string[] ?? source.ToArray();
+            var count = enumerable.Count();
+            for (var i = 0; i < count; i++)
+                returnString += enumerable.ElementAt(i);
             return returnString;
         }
 
         public static List<string> ListPrefixes(this string source)
         {
-            List<string> prefixes = new List<string>();
+            var prefixes = new List<string>();
 
-            for (int i = 0; i < source.Length; i++)
-            {
+            for (var i = 0; i < source.Length; i++)
                 prefixes.Add(source.Substring(0, i));
-            }
 
             return prefixes;
         }
@@ -60,26 +65,19 @@ namespace FuzzyString
 
         public static List<string> ListNGrams(this string source, int n)
         {
-            List<string> nGrams = new List<string>();
+            var nGrams = new List<string>();
 
             if (n > source.Length)
-            {
                 return null;
-            }
-            else if (n == source.Length)
+            if (n == source.Length)
             {
                 nGrams.Add(source);
                 return nGrams;
             }
-            else
-            {
-                for (int i = 0; i < source.Length - n; i++)
-                {
-                    nGrams.Add(source.Substring(i, n));
-                }
+            for (var i = 0; i < source.Length - n; i++)
+                nGrams.Add(source.Substring(i, n));
 
-                return nGrams;
-            }
+            return nGrams;
         }
     }
 }
